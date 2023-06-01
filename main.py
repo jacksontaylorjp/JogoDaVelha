@@ -19,9 +19,10 @@ def jogador(matriz):
     i = 0
     while teste:
         #jogada do bot
-        # VERIFICAR SE O BOT ESTA ESCOLHENDO OUTRO NÚMERO, CASO ESTEJA OCUPADO
+        # VERIFICAR POR QUE O BOT ESTA TRABANDO EM SUA ESCOLHA, CASO ESTEJA OCUPADO
         if i % 2 == 0:
             opcaoJogardorBot = random.randint(1, 9)
+            print(opcaoJogardorBot)
             match opcaoJogardorBot:
                 case 1:
                     if matriz[0][0] != "O" and matriz[0][0] != "X":
@@ -69,9 +70,10 @@ def jogador(matriz):
                     else:
                         i -= 1
             print("jogada no bot\n",matriz)
+        i += 1
         #jogada do usuário
         if i % 2 != 0:
-            opcaoJogardor = int(input("Escolha uma posição entre 1 a 9: "))
+            opcaoJogardor = int(input("Digite seu movimento entre 1 a 9: "))
             match opcaoJogardor:
                 case 1:
                     if matriz[0][0] != "O" and matriz[0][0] != "X":
