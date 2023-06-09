@@ -1,11 +1,9 @@
-                        #ATENÇÃO - LISTA DE PROBLEMAS A SER RESOLVIDOS
-#1 VERIFICAR ERRO NA JOGADA DO BOT AO ESCOLHER A MESMA POSIÇÃO
-#2 ALÉM DA CONDIÇÃO DE PARADA JÁ IMPLEMENTADA(TERMINAR AO PREENCHER O TABULEIRO)
-    #2.1 EMPATE, QUEM GANHOU E QUEM PERDEU
-#3 TRATAR A ENTRADA DO USUÁRIO PARA NÚMEROS ENTRE 1 E 9
+# ATENÇÃO - LISTA DE PROBLEMAS A SER RESOLVIDOS
+# 2 ALÉM DA CONDIÇÃO DE PARADA JÁ IMPLEMENTADA
+# 2.1 EMPATE(FALTA)
 import random
 
-#função que criar a matriz e preenche de 1 a 9
+# função que criar a matriz e preenche de 1 a 9
 def matriz():
     # forma simplificada -> matrizJogo = [[""] * 3 for _ in range(3)]
     cont = 1
@@ -36,143 +34,180 @@ def tabuleiro(matriz):
 
 #função que verificar as condicões de finalização do jogo
 def condicoesParada(matriz):
-    # VERIFICAÇÃO PARA SABER SE DEVE TERMINAR O LAÇO WHILE, TERMINA SE NÃO TIVER MAIS NÚMEROS DE 1 A 9
-    if 1 in matriz[0] or 2 in matriz[0] or 3 in matriz[0] or \
-            4 in matriz[1] or 5 in matriz[1] or 6 in matriz[1] or \
-            7 in matriz[2] or 8 in matriz[2] or 9 in matriz[2]:
-        return True
-    else:
+    if  matriz[0][0] == "X" and matriz[0][1] == "X" and matriz[0][2] == "X" or \
+        matriz[1][0] == "X" and matriz[1][1] == "X" and matriz[1][2] == "X" or \
+        matriz[2][0] == "X" and matriz[2][1] == "X" and matriz[2][2] == "X" or \
+        matriz[0][0] == "X" and matriz[1][0] == "X" and matriz[2][0] == "X" or \
+        matriz[0][1] == "X" and matriz[1][1] == "X" and matriz[2][1] == "X" or \
+        matriz[0][2] == "X" and matriz[1][2] == "X" and matriz[2][2] == "X" or \
+        matriz[0][0] == "X" and matriz[1][1] == "X" and matriz[2][2] == "X" or \
+        matriz[0][2] == "X" and matriz[1][1] == "X" and matriz[2][0] == "X":
+        print("Parabéns! Você ganhou.")
+        return False
+    elif  matriz[0][0] == "O" and matriz[0][1] == "O" and matriz[0][2] == "O" or \
+        matriz[1][0] == "O" and matriz[1][1] == "O" and matriz[1][2] == "O" or \
+        matriz[2][0] == "O" and matriz[2][1] == "O" and matriz[2][2] == "O" or \
+        matriz[0][0] == "O" and matriz[1][0] == "O" and matriz[2][0] == "O" or \
+        matriz[0][1] == "O" and matriz[1][1] == "O" and matriz[2][1] == "O" or \
+        matriz[0][2] == "O" and matriz[1][2] == "O" and matriz[2][2] == "O" or \
+        matriz[0][0] == "O" and matriz[1][1] == "O" and matriz[2][2] == "O" or \
+        matriz[0][2] == "O" and matriz[1][1] == "O" and matriz[2][0] == "O":
+        print("Você perdeu.")
         return False
 
+    else:
+        return True
 def jogadas(matriz):
     teste = True
-    i = 0
+    escolhaJogador = True
     while teste:
         #jogada do bot
-        if i % 2 == 0:
+        if escolhaJogador:
             opcaoJogardorBot = random.randint(1, 9)
-            print("Jogada do Computador (", opcaoJogardorBot, " ", i, ")")
+            print("Jogada do Computador (", opcaoJogardorBot, ")")
             match opcaoJogardorBot:
                 case 1:
-                    if matriz[0][0] != "O" and matriz[0][0] != "X":
+                    if matriz[0][0] == 1:
                         matriz[0][0] = "O"
+                        escolhaJogador = False
                     else:
                         print("nova jogada do bot")
-                        i -= 1
+                        escolhaJogador = True
                 case 2:
-                    if matriz[0][1] != "O" and matriz[0][1] != "X":
+                    if matriz[0][1] == 2:
                         matriz[0][1] = "O"
+                        escolhaJogador = False
                     else:
                         print("nova jogada do bot")
-                        i -= 1
+                        escolhaJogador = True
                 case 3:
-                    if matriz[0][2] != "O" and matriz[0][2] != "X":
+                    if matriz[0][2] == 3:
                         matriz[0][2] = "O"
+                        escolhaJogador = False
                     else:
                         print("nova jogada do bot")
-                        i -= 1
+                        escolhaJogador = True
                 case 4:
-                    if matriz[1][0] != "O" and matriz[1][0] != "X":
+                    if matriz[1][0] == 4:
                         matriz[1][0] = "O"
+                        escolhaJogador = False
                     else:
                         print("nova jogada do bot")
-                        i -= 1
+                        escolhaJogador = True
                 case 5:
-                    if matriz[1][1] != "O" and matriz[1][1] != "X":
+                    if matriz[1][1] == 5:
                         matriz[1][1] = "O"
+                        escolhaJogador = False
                     else:
                         print("nova jogada do bot")
-                        i -= 1
+                        escolhaJogador = True
                 case 6:
-                    if matriz[1][2] != "O" and matriz[1][2] != "X":
+                    if matriz[1][2] == 6:
                         matriz[1][2] = "O"
+                        escolhaJogador = False
                     else:
                         print("nova jogada do bot")
-                        i -= 1
+                        escolhaJogador = True
                 case 7:
-                    if matriz[2][0] != "O" and matriz[2][0] != "X":
+                    if matriz[2][0] == 7:
                         matriz[2][0] = "O"
+                        escolhaJogador = False
                     else:
                         print("nova jogada do bot")
-                        i -= 1
+                        escolhaJogador = True
                 case 8:
-                    if matriz[2][1] != "O" and matriz[2][1] != "X":
+                    if matriz[2][1] == 8:
                         matriz[2][1] = "O"
+                        escolhaJogador = False
                     else:
                         print("nova jogada do bot")
-                        i -= 1
+                        escolhaJogador = True
                 case 9:
-                    if matriz[2][2] != "O" and matriz[2][2] != "X":
+                    if matriz[2][2] == 9:
                         matriz[2][2] = "O"
+                        escolhaJogador = False
                     else:
                         print("nova jogada do bot")
-                    i -= 1
-            teste = condicoesParada(matriz)
+                        escolhaJogador = True
             tabuleiro(matriz)
-            i += 1
+        teste = condicoesParada(matriz)
+        #finaliza o while se ocorrer uma vitória
+        if teste == False:
+            break
         #jogada do usuário
-        if i % 2 != 0:
-            opcaoJogardor = int(input("Digite seu movimento entre 1 a 9: "))
-            print("Sua jogada (", opcaoJogardor, " ", i, ")")
-            match opcaoJogardor:
+        if not escolhaJogador:
+            jogadasPossiveis = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+            opcaoJogador = int(input("Digite seu movimento entre 1 a 9: "))
+            while opcaoJogador not in jogadasPossiveis:
+                opcaoJogardor = int(input("Movimento errado, escolha um número entre 1 a 9: "))
+            print("Sua jogada (", opcaoJogador, ")")
+            match opcaoJogador:
                 case 1:
-                    if matriz[0][0] != "O" and matriz[0][0] != "X":
+                    if matriz[0][0] == 1:
                         matriz[0][0] = "X"
+                        escolhaJogador = True
                     else:
                         print("posição já escolhida, tente novamente.")
-                        i -= 1
+                        escolhaJogador = False
                 case 2:
-                    if matriz[0][1] != "O" and matriz[0][1] != "X":
+                    if matriz[0][1] == 2:
                         matriz[0][1] = "X"
+                        escolhaJogador = True
                     else:
                         print("posição já escolhida, tente novamente.")
-                        i -= 1
+                        escolhaJogador = False
                 case 3:
-                    if matriz[0][2] != "O" and matriz[0][2] != "X":
+                    if matriz[0][2] == 3:
                         matriz[0][2] = "X"
+                        escolhaJogador = True
                     else:
                         print("posição já escolhida, tente novamente.")
-                        i -= 1
+                        escolhaJogador = False
                 case 4:
-                    if matriz[1][0] != "O" and matriz[1][0] != "X":
+                    if matriz[1][0] == 4:
                         matriz[1][0] = "X"
+                        escolhaJogador = True
                     else:
                         print("posição já escolhida, tente novamente.")
-                        i -= 1
+                        escolhaJogador = False
                 case 5:
-                    if matriz[1][1] != "O" and matriz[1][1] != "X":
+                    if matriz[1][1] == 5:
                         matriz[1][1] = "X"
+                        escolhaJogador = True
                     else:
                         print("posição já escolhida, tente novamente.")
-                        i -= 1
+                        escolhaJogador = False
                 case 6:
-                    if matriz[1][2] != "O" and matriz[1][2] != "X":
+                    if matriz[1][2] == 6:
                         matriz[1][2] = "X"
+                        escolhaJogador = True
                     else:
                         print("posição já escolhida, tente novamente.")
-                        i -= 1
+                        escolhaJogador = False
                 case 7:
-                    if matriz[2][0] != "O" and matriz[2][0] != "X":
+                    if matriz[2][0] == 7:
                         matriz[2][0] = "X"
+                        escolhaJogador = True
                     else:
                         print("posição já escolhida, tente novamente.")
-                        i -= 1
+                        escolhaJogador = False
                 case 8:
-                    if matriz[2][1] != "O" and matriz[2][1] != "X":
+                    if matriz[2][1] == 8:
                         matriz[2][1] = "X"
+                        escolhaJogador = True
                     else:
                         print("posição já escolhida, tente novamente.")
-                        i -= 1
+                        escolhaJogador = False
                 case 9:
-                    if matriz[2][2] != "O" and matriz[2][2] != "X":
+                    if matriz[2][2] == 9:
                         matriz[2][2] = "X"
+                        escolhaJogador = True
                     else:
                         print("posição já escolhida, tente novamente.")
-                        i -= 1
+                        escolhaJogador = False
                 case _:
                     print("Número incorreto! Tente novamente, Escolha a posição entre 1 a 9")
-                    i -= 1
-            teste = condicoesParada(matriz)
+                    escolhaJogador = False
             tabuleiro(matriz)
-            i += 1
+        teste = condicoesParada(matriz)
 jogadas(matriz())
