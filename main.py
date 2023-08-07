@@ -43,6 +43,7 @@ def condicoesParada(matriz):
         matriz[0][0] == "X" and matriz[1][1] == "X" and matriz[2][2] == "X" or \
         matriz[0][2] == "X" and matriz[1][1] == "X" and matriz[2][0] == "X":
         print("Parabéns! Você ganhou.")
+        input("Pressione ENTER para sair.")
         return False
     elif  matriz[0][0] == "O" and matriz[0][1] == "O" and matriz[0][2] == "O" or \
         matriz[1][0] == "O" and matriz[1][1] == "O" and matriz[1][2] == "O" or \
@@ -53,6 +54,7 @@ def condicoesParada(matriz):
         matriz[0][0] == "O" and matriz[1][1] == "O" and matriz[2][2] == "O" or \
         matriz[0][2] == "O" and matriz[1][1] == "O" and matriz[2][0] == "O":
         print("Você perdeu.")
+        input("Pressione ENTER para sair.")
         return False
 
     else:
