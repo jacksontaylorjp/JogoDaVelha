@@ -1,6 +1,4 @@
-# ATENÇÃO - LISTA DE PROBLEMAS A SER RESOLVIDOS
-# 2 ALÉM DA CONDIÇÃO DE PARADA JÁ IMPLEMENTADA
-# 2.1 EMPATE(FALTA)
+# FALTA IMPLEMENTAR O EMPATE
 import random
 
 # função que criar a matriz e preenche de 1 a 9
