@@ -1,6 +1,6 @@
 # JogoDaVelha
 
-Projeto Final da Certificação Python Essentials 1 - CISCO
+Projeto Final da Certificação Python Essentials 1 - CISCO.
 
 <p align="justify"> 
 O seguinte código tem a função de simular o famoso jogo da velha. Dessa forma, existe dois jogadores: o "computador" e o usuário.
